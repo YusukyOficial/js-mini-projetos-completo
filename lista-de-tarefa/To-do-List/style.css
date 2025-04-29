@@ -1,0 +1,143 @@
+/* Definindo variáveis globais de cor para reutilização no código */
+:root {
+    --primary-color: #0d1b2a;        /* Azul escuro (fundo geral) */
+    --secondary-color: #1b263b;      /* Azul meio-escuro (blocos internos) */
+    --accent-color: #00c3ff;         /* Ciano vibrante (destaques e interações) */
+    --text-color: #e0e1dd;           /* Cor clara para textos */
+}
+
+/* Reset e base de layout para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define 1rem como 10px para facilitar cálculos (62.5% de 16px = 10px) */
+html {
+    font-size: 62.5%;
+}
+
+/* Estilo principal do corpo da página */
+body {
+    background: url('img/tech-bg.jpg') no-repeat center center fixed; /* Imagem de fundo centralizada e fixa */
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    font: bold 2rem 'Segoe UI', sans-serif; /* Fonte grande e moderna */
+    color: var(--text-color); /* Cor do texto padrão */
+}
+
+/* Container principal da todo-list */
+.todo {
+    background-color: rgba(13, 27, 42, 0.9); /* Fundo escuro com transparência */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto; /* Centraliza vertical e horizontalmente */
+    gap: 15px; /* Espaço entre os elementos filhos */
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.4); /* Sombra azul neon suave */
+}
+
+/* Título da todo-list */
+.todo__title {
+    background-color: var(--secondary-color); /* Cor de fundo do título */
+    width: 100%;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px var(--accent-color); /* Destaque com sombra azul */
+    font-size: 3rem;
+    color: var(--accent-color); /* Cor do texto vibrante */
+    display: flex;
+    border-radius: 10px;
+}
+
+/* Lista de tarefas (container dos itens) */
+.todo__list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre cada tarefa */
+}
+
+/* Estilo de cada item de tarefa individual */
+.todo__item {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between; /* Espaço entre checkbox/texto/botão */
+    align-items: center;
+    padding: 10px;
+    background-color: var(--secondary-color); /* Fundo do item */
+    box-shadow: 0 0 8px rgba(0, 195, 255, 0.2); /* Sombra leve azul */
+    border-radius: 5px;
+}
+
+/* Efeito visual ao passar o mouse sobre a tarefa */
+.todo__item:hover {
+    background-color: var(--accent-color); /* Altera cor de fundo */
+    color: #000; /* Texto escurecido para contraste */
+    cursor: pointer;
+    transition: 0.3s ease-in-out; /* Suaviza a transição */
+}
+
+/* Estilo da div que contém o texto da tarefa */
+.todo__item > div {
+    width: 80%;
+}
+
+/* Campo de edição de texto (se usado) */
+.todo__item > input[type='text'] {
+    border: none;
+    width: 80%;
+    font: inherit;
+    background: transparent;
+    color: inherit;
+}
+
+/* Estilo dos botões e checkbox dentro de cada item */
+.todo__item > input[type='button'],
+.todo__item > input[type='checkbox'] {
+    width: 30px;
+    height: 30px;
+    font: inherit;
+}
+
+/* Estilo aplicado ao texto quando o checkbox está marcado */
+.todo__item > input[type='checkbox']:checked + div {
+    text-decoration: line-through; /* Riscado */
+    opacity: 0.6; /* Transparência para visual de "concluído" */
+}
+
+/* Container da área para adicionar novas tarefas */
+.todo__new-item {
+    display: flex;
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 70px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 0 10px var(--accent-color);
+    font: inherit;
+    border-radius: 10px;
+}
+
+/* Campo de input para digitar a nova tarefa */
+.todo__new-item > input {
+    background-color: transparent;
+    border: none;
+    width: 80%;
+    outline: none;
+    font: inherit;
+    color: var(--text-color);
+}
+
+/* Estilo do placeholder no campo de input */
+.todo__new-item > input::placeholder {
+    font-style: italic;
+    font-weight: normal;
+    color: #ccc;
+}
